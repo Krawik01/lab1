@@ -1,73 +1,53 @@
-# lab 1
-
-
-# 1
-def task1(a, b, c):
-    if a == b and b == c:
-        print(True)
-    else:
-        print(False)
-
-    print(type(a), hex(id(a)))
-    print(type(b), hex(id(b)))
-    print(type(c), hex(id(c)))
-
-
-a = b = c = "Python 2023"
-task1(a, b, c)
-c = "Java 11"
-
-task1(a, b, c)
-
-# 2
-"""
-
-firstIn = float(input("First number: "))
-
-operator = input("Operator: ")
-
-secondIn = float(input("Second number: "))
-
-if operator == "+":
-    print("Sum: {} + {} = {}".format(firstIn, secondIn, firstIn + secondIn))
-
-if operator == "-":
-    print("Sum: {} - {} = {}".format(firstIn, secondIn, firstIn - secondIn))
-
-if operator == "/":
-    print("Sum: {} / {} = {}".format(firstIn, secondIn, firstIn / secondIn))
-
-if operator == "*":
-    print("Sum: {} * {} = {}".format(firstIn, secondIn, firstIn * secondIn))
-
-if operator == "%":
-    print("Sum: {} % {} = {}".format(firstIn, secondIn, firstIn % secondIn))
-
-if operator == "//":
-    print("Sum: {} // {} = {}".format(firstIn, secondIn, firstIn // secondIn))
-
-if operator == "**":
-    print("Sum: {} do potegi  {} = {}".format(firstIn, secondIn, firstIn ** secondIn))
-"""
 # 3
 
-question1 = "1"
-question2 = "2"
-question3 = "3"
-question4 = "4"
-question5 = "5"
-question6 = "6"
-question7 = "7"
 
-print("tu")
-listOfQuestions = [question1, question2, question3,
-                   question4, question5, question6,
-                   question7]
-listOfAnswers =[{"1", "2", "3", "4"}, {"1", "2"}]
+listOfQuestions = [
+    "1. Najczęstszym sposobem spędzania wolnego czasu jest dla Ciebie: ",
+    "2. W jakich okolicznościach czytasz książki najczęściej?",
+    "3. Jeżeli spędzasz czas wolny czytając książki, jaki jest główny powód takiego wyboru?"
+    "4. Po książki w jakiej formie sięgasz najczęściej? ",
+    "5. Ile książek czytasz średnio w ciągu roku?",
+    "6.Jak często średnio czytasz książki? ",
+    "7. Po jakie gatunki książek sięgasz najczęściej?"
+]
+listOfAnswers = [
+    ["a. oglądanie telewizji/filmów/seriali", "b. słuchanie muzyki", "c.inne, jakie?"],
+    ["a. podczas podróży", "b. podczas pracy/nauki (to ich element)", "c. inne, jakie?"],
+    ["a. chęć poszerzenia wiedzy", "b. fakt, że czytanie jest modne", "c. inny, jaki?"],
+    ["a. papierowej (tradycyjnej)", "b. e-booki na tablecie/telefonie",
+     "c. e-booki na specjalnym czytniku (np. Kindle)"],
+    ["a. codziennie", "b. żadnej w całości - jedynie fragmenty", "c. powyżej 10"],
+    ["a. codziennie", "b. raz na kilka miesięcy", "c. wcale"],
+    ["a. horrory", "b. naukowe", "c. poezję"],
+
+]
 listOfAnswersInput = []
 
-for i in range(0,6):
+for i in range(0, 6):
     print(listOfQuestions[i])
-    print(listOfAnswers[i])
-answer = input()
+    for j in range(0, 3):
+        print(listOfAnswers[i][j])
 
+    userAnwswer = input("Odpowiedz: ")
+
+    if userAnwswer == "a":
+        temp = 0
+        listOfAnswersInput.append(listOfAnswers[i][temp])
+    if userAnwswer == "b":
+        temp = 1
+        listOfAnswersInput.append(listOfAnswers[i][temp])
+    if userAnwswer == "c":
+        temp = 2
+        if i <= 2:
+            whatC = input("Opisz: ")
+            whatC = "c. " + whatC
+            listOfAnswersInput.append(whatC)
+        else:
+            listOfAnswersInput.append(listOfAnswers[i][temp])
+
+
+name = input("Podaj imie i nazwisko:\n")
+listOfAnswersInput.append(name)
+
+for i in range(0, 7):
+    print(i + 1, ".", listOfAnswersInput[i])
